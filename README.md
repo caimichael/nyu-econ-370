@@ -1,5 +1,8 @@
 ### Quantitative Economics with Python 
 
+*COMMENT BY MICHAEL
+This is the combined/forked repo of class notes and my own assignments.
+
 ---
 
 **ECON-UA 370 (NYU, Spring 2016)**
