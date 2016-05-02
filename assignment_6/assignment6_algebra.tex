@@ -1,0 +1,61 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Algebra Scratch Work for Assignment 6}
+\author{Michael}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section{}
+$ p_t = E_t m_{t+1} E_t (c_{t+1} + p_{t+1}) + cov_t (m_{t+1}, c_{t+1} + p_{t+1})$
+
+Recall $c_{t+1} = \lambda_{t+1} c_t$ and $p_t = v_t c_t$
+
+$v_t c_t = E_t[m_{t+1}] E_t[c_{t+1} + p_{t+1}] + E_t[m_{t+1} \times (c_{t+1} + p_{t+1})] - E_t[m_{t+1}] E_t[c_{t+1} + p_{t+1}]$
+
+$v_t c_t = E_t[m_{t+1}] E_t[\lambda_{t+1} c_{t} + v_{t+1} \lambda_{t+1} c_t] + E_t[m_{t+1} \times (\lambda_{t+1} c_{t} + v_{t+1} \lambda_{t+1} c_t)] - E_t[m_{t+1}] E_t[\lambda_{t+1} c_{t} + v_{t+1} \lambda_{t+1} c_t]$
+
+Cancelling out all of the $c_t$ terms we get:
+
+$v_t = E_t[m_{t+1}] E_t[\lambda_{t+1} + v_{t+1} \lambda_{t+1}] + E_t[m_{t+1} \times (\lambda_{t+1} + v_{t+1} \lambda_{t+1})] - E_t[m_{t+1}] E_t[\lambda_{t+1} + v_{t+1} \lambda_{t+1}]$
+
+Simplifying a bit further we get:
+
+$v_t = E_t[m_{t+1} \times (\lambda_{t+1} + v_{t+1} \lambda_{t+1})]$
+
+Now to put this in a form where we can verify the given data in Python:
+
+$v_i = \Sigma_{j=1}^n P_{ij} m_j (s_j + s_j v_j)$
+
+Let $\hat{P}_{ij} = P_{ij}m_j$ 
+
+Then: $v=\hat{P}s + \hat{P} s v$
+
+\section{}
+$1 = E_t m_{t+1} E_t R_{t+1} + cov_t (m_{t+1} R_{t+1})$
+$1 = E_t m_{t+1} E_t R_{t+1} + E_t (m_{t+1} R_{t+1}) - E_t m_{t+1} E_t R_{t+1}$
+$1 = E_t (m_{t+1} R_{t+1})$
+
+\section{}
+$v_i = \Sigma_{j=1}^n P_{ij} m_j (s_j + s_j v_j)$
+
+$v = Pms + Pmsv$
+
+$v - Pmsv = Pms$
+
+$v (I-Pms) = Pms$
+
+\end{document}  
